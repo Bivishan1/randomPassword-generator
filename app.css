@@ -58,20 +58,20 @@ text-decoration: underline;
    outline: none;
     }
 
-    .row{
+   .row {
     	display: flex;
     	justify-content: space-between;
     	margin-bottom: 15px;
     	margin-top: 15px;
     }
 
-    .row p, 
+   /* .row p, 
     .row label {
     	flex-basis: 60%;
     	font-size: 16px;
     	font-weight: 500;
     	color:#000;
-    }
+    }*/
 
     .row p {
     	font-weight: 700;
