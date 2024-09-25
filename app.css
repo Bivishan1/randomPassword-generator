@@ -65,13 +65,13 @@ text-decoration: underline;
     	margin-top: 15px;
     }
 
-   /* .row p, 
+   .row p, 
     .row label {
     	flex-basis: 60%;
     	font-size: 16px;
     	font-weight: 500;
     	color:#000;
-    }*/
+    }
 
     .row p {
     	font-weight: 700;
@@ -127,7 +127,7 @@ text-decoration: underline;
 
     .pass-indicator.weak::before {
     	width: 20%;
-    	background-color: #f1c80b;
+    	background-color: #ff0000;
     }
 
     .pass-indicator.medium::before {

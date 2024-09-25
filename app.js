@@ -22,9 +22,11 @@ sliderValue.textContent = inputSlider.value;
 inputSlider.addEventListener('input',()=> {
 	
 	sliderValue.textContent = inputSlider.value;
-	console.log(inputSlider.value);
+	// console.log(inputSlider.value);
 	generatePassword();
 });
+
+
 
 function generatePassword() {
 	const length = inputSlider.value;
@@ -35,10 +37,51 @@ function generatePassword() {
 	characters += uppercaseE1.checked ? uppercaseLetters : "";
 	characters += numbersE1.checked ? numbers : "";
 	characters += symbolsE1.checked ? symbols : "";
+	
 
 	for (let i =0;i < length;i++) {
 		password+= characters.charAt(Math.floor(Math.random() * characters.length));
-		console.log(password);
+		// console.log(password);
 	}
-	return passBox.value = password;
+	passBox.value = password;
+	updatePasswordIndicator();
 }
+
+generateBtn.addEventListener('click', ()=>{
+	generatePassword();
+})
+
+function updatePasswordIndicator() {
+	const passwordStrength = generatePasswordStrength(passBox.value);
+	console.log(passBox.value);
+	console.log(passwordStrength);
+	passIndicator.className = "pass-indicator " + passwordStrength;
+	console.log(passIndicator.className);
+
+}
+
+function generatePasswordStrength(password) { 
+	if (password.length <= 5) {
+		return "weak";
+	}
+	else if (password.length <=20) {
+		return "medium";
+	} else {
+		return "strong";
+	}
+}
+
+window.addEventListener('DOMContentLoaded', ()=> {
+	updatePasswordIndicator();
+})
+
+
+copyBtn.addEventListener("click", ()=> {
+	if (passBox.value != "" || passBox.value.length >=1) {
+		navigator.clipboard.writeText(passBox.value);
+		copyBtn.innerText = "check";
+	}
+	else {
+	alert('password should greater than 1 to copy');
+	}
+})
